@@ -1,0 +1,15 @@
+# GitHub Pages Jekyll yapilandirmasi — Frejya yasal belgeleri (frejya-legal repo)
+# Bu repo yalniz gizlilik politikasi + kullanici sozlesmesini barindirir; uygulama
+# kaynagi icermez. Tum .md dosyalari legal/ altinda, HTML'e donusturulur.
+
+title: Frejya - Yasal Belgeler / Legal Documents
+description: Gizlilik Politikasi, Kullanici Sozlesmesi (EULA) - TR & EN
+theme: minima
+
+markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: false
+
+# legal/privacy.tr.md -> /legal/privacy.tr.html
+permalink: /:path/:basename:output_ext
