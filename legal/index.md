@@ -17,6 +17,6 @@ layout: default
 
 ---
 
-**İletişim / Contact:** [tellimujdat@gmail.com](mailto:tellimujdat@gmail.com)
+**İletişim / Contact:** [iletisim@frejya.app](mailto:iletisim@frejya.app)
 
 **Hizmet Sağlayıcı / Service Provider:** Müjdat TELLİ

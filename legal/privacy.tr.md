@@ -10,7 +10,7 @@ layout: default
 
 İşbu Gizlilik Politikası, **Müjdat TELLİ** (bundan sonra "biz", "Frejya" veya "Hizmet Sağlayıcı" olarak anılacaktır) tarafından sunulan **Frejya** mobil uygulamasının (bundan sonra "Uygulama") kullanıcılarından (bundan sonra "siz" veya "Kullanıcı") topladığı kişisel verileri, bu verilerin kullanım amaçlarını, üçüncü taraflarla paylaşım koşullarını ve haklarınızı açıklar.
 
-İletişim: **tellimujdat@gmail.com**
+İletişim: **iletisim@frejya.app**
 
 Bu Politika, **6698 sayılı Kişisel Verilerin Korunması Kanunu (KVKK)** ve uygulanabildiği ölçüde **Avrupa Birliği Genel Veri Koruma Tüzüğü (GDPR)** kapsamında düzenlenmiştir.
 
@@ -141,13 +141,13 @@ KVKK m.11 uyarınca aşağıdaki haklara sahipsiniz:
 8. Otomatik sistemlerle analiz sonucu aleyhinize bir sonuç çıkmasına itiraz etme,
 9. Kanuna aykırı işleme sonucu zarara uğradıysanız tazminat talep etme.
 
-Bu hakları kullanmak için **tellimujdat@gmail.com** adresine yazılı talep gönderebilirsiniz. Talebiniz en geç **30 gün içinde** ücretsiz olarak yanıtlanır.
+Bu hakları kullanmak için **iletisim@frejya.app** adresine yazılı talep gönderebilirsiniz. Talebiniz en geç **30 gün içinde** ücretsiz olarak yanıtlanır.
 
 ---
 
 ## 8. Çocukların Gizliliği
 
-Frejya **18 yaş ve üzeri** kullanıcılar içindir. **18 yaşından küçük** kişilerin hesap oluşturması yasaktır. Yaşınızı kayıt sırasında beyan etmeniz istenir; sahte beyan tespit edildiğinde hesap derhal silinir. 18 yaş altı bir kişinin Frejya'da hesap açtığını fark ederseniz lütfen bize bildirin (**tellimujdat@gmail.com**), hesabı 24 saat içinde sileriz.
+Frejya **18 yaş ve üzeri** kullanıcılar içindir. **18 yaşından küçük** kişilerin hesap oluşturması yasaktır. Yaşınızı kayıt sırasında beyan etmeniz istenir; sahte beyan tespit edildiğinde hesap derhal silinir. 18 yaş altı bir kişinin Frejya'da hesap açtığını fark ederseniz lütfen bize bildirin (**iletisim@frejya.app**), hesabı 24 saat içinde sileriz.
 
 ---
 
@@ -199,7 +199,7 @@ Bu politikayı zaman zaman güncelleyebiliriz. Önemli değişiklikler için uyg
 Sorularınız, şikâyetleriniz veya KVKK talepleri için:
 
 **Müjdat TELLİ**
-E-posta: **tellimujdat@gmail.com**
+E-posta: **iletisim@frejya.app**
 
 KVKK kapsamında resmi başvuruları **yazılı olarak** veya **kayıtlı elektronik posta (KEP)** yoluyla göndermeniz tercih edilir.
 

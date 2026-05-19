@@ -12,7 +12,7 @@ layout: default
 
 Uygulamayı indirip kullanarak, bu Sözleşme'nin tüm hükümlerini okuduğunuzu, anladığınızı ve kabul ettiğinizi beyan edersiniz. Kabul etmiyorsanız Uygulamayı kullanmayınız.
 
-İletişim: **tellimujdat@gmail.com**
+İletişim: **iletisim@frejya.app**
 
 ---
 
@@ -43,7 +43,7 @@ Hizmet, Apple App Store ve Google Play Store üzerinden dağıtılır.
 ### 2.3. Hesap Güvenliği
 - Şifrenizi **kimseyle paylaşmayın**. Şifre bizim sunucularımızda bcrypt + salt ile saklanır; biz bile okuyamayız.
 - Hesabınızdan yapılan tüm faaliyetlerden **siz sorumlusunuz**.
-- Hesabınızda yetkisiz erişim şüphesi varsa derhal **tellimujdat@gmail.com** adresine bildirin.
+- Hesabınızda yetkisiz erişim şüphesi varsa derhal **iletisim@frejya.app** adresine bildirin.
 
 ---
 
@@ -134,7 +134,7 @@ Profil fotoğrafınızın yapay zekâ sistemleri tarafından (Google Gemini, Gro
 - İlk buluşmaları **kamuya açık yerlerde** yapınız ve güvendiğiniz birine haber veriniz.
 
 ### 8.2. AI İnceleme Hatası
-- Profil fotoğrafı AI incelemesi %100 doğru değildir. Yanlışlıkla reddedilen fotoğraflar için manuel inceleme talep edebilirsiniz (5 deneme hakkı sonrası tıkanırsa **tellimujdat@gmail.com**'a yazınız).
+- Profil fotoğrafı AI incelemesi %100 doğru değildir. Yanlışlıkla reddedilen fotoğraflar için manuel inceleme talep edebilirsiniz (5 deneme hakkı sonrası tıkanırsa **iletisim@frejya.app**'a yazınız).
 
 ### 8.3. Yasal Sınırlar
 Uygulanabilir yasaların izin verdiği azami ölçüde, Müjdat TELLİ aşağıdakilerden **sorumlu değildir**:
@@ -202,7 +202,7 @@ Bu Sözleşme'yi zaman zaman güncelleyebiliriz. Değişiklikler şu yollarla bi
 ## 13. İletişim
 
 **Müjdat TELLİ**
-E-posta: **tellimujdat@gmail.com**
+E-posta: **iletisim@frejya.app**
 
 Şikâyet, destek talepleri ve hukuki bildirimler bu adrese yapılır.
 

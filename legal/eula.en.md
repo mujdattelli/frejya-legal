@@ -12,7 +12,7 @@ This End User License Agreement ("Agreement") governs the use of the **Frejya** 
 
 By downloading and using the Application, you confirm that you have read, understood, and accept all terms of this Agreement. If you do not accept, please do not use the Application.
 
-Contact: **tellimujdat@gmail.com**
+Contact: **iletisim@frejya.app**
 
 ---
 
@@ -43,7 +43,7 @@ The Service is distributed via Apple App Store and Google Play Store.
 ### 2.3. Account Security
 - Do not share your password **with anyone**. The password is stored on our servers with bcrypt + salt; **even we cannot read it**.
 - **You are responsible** for all activities conducted from your account.
-- If you suspect unauthorized access, immediately notify **tellimujdat@gmail.com**.
+- If you suspect unauthorized access, immediately notify **iletisim@frejya.app**.
 
 ---
 
@@ -134,7 +134,7 @@ The Service is currently **entirely free**. Premium features may be offered for 
 - Hold first meetings in **public places** and notify someone you trust.
 
 ### 8.2. AI Review Errors
-- Profile photo AI review is not 100% accurate. You may request manual review for erroneously rejected photos (after 5 attempt limits write to **tellimujdat@gmail.com**).
+- Profile photo AI review is not 100% accurate. You may request manual review for erroneously rejected photos (after 5 attempt limits write to **iletisim@frejya.app**).
 
 ### 8.3. Legal Limits
 To the maximum extent permitted by applicable law, Müjdat TELLİ is **not liable** for:
@@ -202,7 +202,7 @@ Continuing to use the Application after material changes constitutes your **acce
 ## 13. Contact
 
 **Müjdat TELLİ**
-Email: **tellimujdat@gmail.com**
+Email: **iletisim@frejya.app**
 
 Complaints, support requests, and legal notices should be sent to this address.
 

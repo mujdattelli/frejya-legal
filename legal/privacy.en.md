@@ -10,7 +10,7 @@ layout: default
 
 This Privacy Policy describes how **Müjdat TELLİ** (hereinafter "we", "Frejya", or "Service Provider") collects, uses, and protects personal data of users (hereinafter "you" or "User") of the **Frejya** mobile application (hereinafter "Application").
 
-Contact: **tellimujdat@gmail.com**
+Contact: **iletisim@frejya.app**
 
 This Policy is prepared in compliance with **Turkey's Personal Data Protection Law No. 6698 (KVKK)** and, where applicable, the **European Union General Data Protection Regulation (GDPR)**.
 
@@ -141,13 +141,13 @@ Per KVKK Article 11 (and GDPR Articles 15-22), you have the following rights:
 8. To object to outcomes generated against you through automated systems,
 9. To claim damages if you suffer loss due to unlawful processing.
 
-To exercise these rights, send a **written request** to **tellimujdat@gmail.com**. Your request will be answered **free of charge within 30 days** at the latest.
+To exercise these rights, send a **written request** to **iletisim@frejya.app**. Your request will be answered **free of charge within 30 days** at the latest.
 
 ---
 
 ## 8. Children's Privacy
 
-Frejya is for users **18 years of age or older**. **Persons under 18 are prohibited** from creating an account. You are required to declare your age during registration; **false declarations result in immediate account deletion**. If you discover that a person under 18 has created an account on Frejya, please report it to **tellimujdat@gmail.com** and we will delete the account within 24 hours.
+Frejya is for users **18 years of age or older**. **Persons under 18 are prohibited** from creating an account. You are required to declare your age during registration; **false declarations result in immediate account deletion**. If you discover that a person under 18 has created an account on Frejya, please report it to **iletisim@frejya.app** and we will delete the account within 24 hours.
 
 ---
 
@@ -199,7 +199,7 @@ We may update this Policy from time to time. For significant changes, we will no
 For questions, complaints, or KVKK / GDPR requests:
 
 **Müjdat TELLİ**
-Email: **tellimujdat@gmail.com**
+Email: **iletisim@frejya.app**
 
 For formal KVKK applications, **written submission** or **registered electronic mail (KEP)** is preferred.
 
