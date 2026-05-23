@@ -119,10 +119,11 @@ Data Processing Agreements (DPAs) are in effect or being established with each s
 | Data Type | Retention Period |
 |---|---|
 | Active account data | As long as the account is active |
-| Messages (E2EE) | Deleted when account is deleted; image messages auto-delete 48 hrs after sending if unread, or 2 mins after being read |
-| Anonymous record after account deletion | 60 days (for legal notice / fraud claim review) |
+| Text & image messages (E2EE) | Kept during the chat; deleted when the chat ends |
+| **Voice messages** | **Automatically deleted 15 days after sending** (even if the chat is still open) |
+| Anonymous record after account deletion | **15 days** (for legal notice / fraud claim review) — then permanently deleted including `auth.users` |
 | Crash logs (Sentry) | 90 days |
-| Audit logs (legal obligation) | 1 year |
+| Audit logs (legal obligation) | 1 year (anonymous — UUID + action + timestamp) |
 | Rejected profile photos | Deleted immediately |
 
 ---

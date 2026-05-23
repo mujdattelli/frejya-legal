@@ -96,7 +96,7 @@ Banned users may not create a new account with the same email / phone / device I
 ### 5.1. Your Content
 - Your profile photo, biography, messages, and social feed posts are **your property**.
 - Frejya uses this content **only to provide the Service** (storage, display, matching) under a **limited, royalty-free, revocable license**.
-- When you delete your account, your content is deleted (permanent after the 60-day legal retention period).
+- When you delete your account, your content is deleted **immediately**; the account record is kept anonymous for 15 days, then permanently erased. The action cannot be undone.
 
 ### 5.2. Frejya's Content
 - The Application itself, logo, animal icon SVGs, hieroglyph keyboard symbols, and scratch system design are the **property of Müjdat TELLİ**.
@@ -104,6 +104,9 @@ Banned users may not create a new account with the same email / phone / device I
 
 ### 5.3. AI Processing Consent
 You grant explicit consent for your profile photo to be automatically reviewed for content appropriateness by AI systems (Google Gemini, Groq). This process is conducted **anonymously** (without user identity). Details: Privacy Policy §3.
+
+### 5.4. Voice Message Lifespan
+Voice messages sent inside chats are retained for **15 days** for your privacy; after this period an automated job permanently deletes them from our servers. The chat window then shows a "Voice message expired" label and the message can no longer be played. Text and image messages are not affected by this limit (they remain until the chat ends).
 
 ---
 
@@ -152,10 +155,10 @@ Our total liability shall not exceed the amount you have paid to Frejya in the l
 
 ### 9.1. Termination by You
 - You may delete your account at any time via the **"Delete My Account"** button in the app.
-- Your data: profile, messages, posts are **immediately** anonymized.
-- The account is marked deleted for 60 days (for fraud / legal notice review).
-- After 60 days, **all data is permanently deleted**.
-- During this period you cannot re-register with the same email.
+- Your data (profile, photos, messages, posts) is deleted **immediately and irreversibly**.
+- The account record is marked deleted for 15 days, kept only at UUID level anonymously (for fraud / legal notice review).
+- After 15 days, an automated job **permanently deletes the account record and the `auth.users` entry** — no trace remains on Frejya.
+- During these 15 days you cannot re-register with the same email; after that you are free to.
 
 ### 9.2. Termination by Us
 We reserve the right to terminate your account in the following cases:

@@ -96,7 +96,7 @@ Banlanmış kullanıcı, aynı e-posta / telefon / cihaz ID ile yeni hesap açam
 ### 5.1. Sizin İçeriğiniz
 - Profil fotoğrafınız, biyografi, mesajlar, sosyal akış paylaşımlarınız **sizin mülkiyetinizdedir**.
 - Frejya, bu içerikleri yalnızca Hizmeti sunmak için (depolama, görüntüleme, eşleştirme) **sınırlı, ücretsiz, geri alınabilir lisans** ile kullanır.
-- Hesabınızı sildiğinizde içerikleriniz silinir (60 günlük yasal saklama süresi sonunda kalıcıdır).
+- Hesabınızı sildiğinizde içerikleriniz **hemen** silinir; hesap kaydı 15 gün boyunca anonim tutulur, sonra kalıcı olarak silinir. İşlem geri alınamaz.
 
 ### 5.2. Frejya'nın İçeriği
 - Uygulamanın kendisi, logo, animal icon SVG'leri, hieroglif klavye sembolleri, kazıma sistemi tasarımı **Müjdat TELLİ'nin mülkiyetindedir**.
@@ -104,6 +104,9 @@ Banlanmış kullanıcı, aynı e-posta / telefon / cihaz ID ile yeni hesap açam
 
 ### 5.3. AI İşleme Onayı
 Profil fotoğrafınızın yapay zekâ sistemleri tarafından (Google Gemini, Groq) içerik uygunluğu açısından otomatik incelenmesine açık rıza verirsiniz. Bu işlem **anonim** olarak (kullanıcı kimliği olmadan) yapılır. Detaylar: Gizlilik Politikası §3.
+
+### 5.4. Sesli Mesaj Süre Sınırı
+Sohbet içinde gönderilen sesli mesajlar mahremiyetiniz için **15 gün** boyunca saklanır; bu süre dolunca otomatik bir görev tarafından sunucudan kalıcı olarak silinir. Sohbet penceresinde "Sesli mesajın süresi doldu" etiketi görünür ve mesaj artık dinlenemez. Metin ve görsel mesajları bu sınırdan etkilenmez (onlar sohbet sona erene kadar durur).
 
 ---
 
@@ -152,10 +155,10 @@ Toplam sorumluluğumuz, sizin son 12 ayda Frejya'ya yaptığınız ödemeleri (e
 
 ### 9.1. Sizin Hesabınızı Silmeniz
 - Uygulamada **"Hesabımı Sil"** butonu ile istediğiniz anda hesabınızı silebilirsiniz.
-- Verileriniz: profil, mesajlar, paylaşımlar **anında** anonimleştirilir.
-- 60 gün süreyle hesap kaydı silindi olarak işaretlenir (dolandırıcılık / yasal ihbar incelemesi için).
-- 60 gün sonra **tüm veriler kalıcı olarak silinir**.
-- Bu süre içinde aynı e-posta ile yeniden kayıt olamazsınız.
+- Verileriniz (profil, fotoğraflar, mesajlar, paylaşımlar) **anında ve geri alınamaz biçimde** silinir.
+- 15 gün süreyle hesap kaydı silindi olarak işaretlenir, sadece UUID düzeyinde anonim tutulur (dolandırıcılık / yasal ihbar incelemesi için).
+- 15 gün sonra otomatik bir görev hesap kaydını ve `auth.users` kaydını **tamamen siler** — Frejya'da hiçbir izi kalmaz.
+- Bu 15 gün içinde aynı e-posta ile yeniden kayıt olamazsınız; sonrasında serbestsiniz.
 
 ### 9.2. Hesabınızı Bizim Sonlandırmamız
 Aşağıdaki durumlarda hesabınızı sonlandırma hakkını saklı tutarız:

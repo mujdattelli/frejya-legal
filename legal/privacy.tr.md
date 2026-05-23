@@ -119,10 +119,11 @@ Her hizmet sağlayıcısıyla veri işleme sözleşmeleri (DPA) yürürlüktedir
 | Veri Türü | Saklama Süresi |
 |---|---|
 | Aktif hesap verileri | Hesap aktif olduğu sürece |
-| Mesajlar (E2EE) | Hesap silindiğinde silinir; resim mesajları okunmadan 48 saat, okunduktan sonra 2 dakika sonra otomatik silinir |
-| Hesap silme sonrası anonim kayıt | 60 gün (yasal ihbar / dolandırıcılık şikâyeti için) |
+| Metin & görüntü mesajları (E2EE) | Sohbet süresince; sohbet kapanınca silinir |
+| **Sesli mesajlar** | **Gönderildikten 15 gün sonra otomatik silinir** (sohbet sürse bile) |
+| Hesap silme sonrası anonim kayıt | **15 gün** (yasal ihbar / dolandırıcılık şikâyeti için) — sonra `auth.users` dahil tamamen silinir |
 | Crash logları (Sentry) | 90 gün |
-| Audit logları (yasal yükümlülük) | 1 yıl |
+| Audit logları (yasal yükümlülük) | 1 yıl (anonim — UUID + eylem + zaman) |
 | Reddedilmiş profil fotoğrafları | Anında silinir |
 
 ---
