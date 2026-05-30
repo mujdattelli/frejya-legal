@@ -119,7 +119,8 @@ Data Processing Agreements (DPAs) are in effect or being established with each s
 | Data Type | Retention Period |
 |---|---|
 | Active account data | As long as the account is active |
-| Text & image messages (E2EE) | Kept during the chat; deleted when the chat ends |
+| Text messages (E2EE) | Kept during the chat; on chat end, immediately removed from the user view, retained **encrypted for 15 days** for legal obligations, then permanently deleted |
+| Image messages | Deleted 2 minutes after being opened |
 | **Voice messages** | **Automatically deleted 15 days after sending** (even if the chat is still open) |
 | Anonymous record after account deletion | **15 days** (for legal notice / fraud claim review) — then permanently deleted including `auth.users` |
 | Crash logs (Sentry) | 90 days |
