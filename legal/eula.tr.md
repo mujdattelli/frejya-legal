@@ -6,7 +6,7 @@ layout: default
 # Frejya — Son Kullanıcı Lisans Sözleşmesi (EULA)
 
 **Yürürlük Tarihi:** 14 Mayıs 2026
-**Son Güncelleme:** 14 Mayıs 2026
+**Son Güncelleme:** 11 Haziran 2026
 
 İşbu Son Kullanıcı Lisans Sözleşmesi ("Sözleşme"), **Müjdat TELLİ** (bundan sonra "biz" veya "Hizmet Sağlayıcı") tarafından sunulan **Frejya** mobil uygulamasının ("Uygulama" veya "Hizmet") kullanım koşullarını düzenler.
 
@@ -20,11 +20,13 @@ Uygulamayı indirip kullanarak, bu Sözleşme'nin tüm hükümlerini okuduğunuz
 
 Frejya, **18 yaş ve üzeri** yetişkinler için tasarlanmış, "yavaş flört" (slow dating) felsefesine dayalı bir sosyal ve tanışma uygulamasıdır. Hizmet aşağıdakileri sunar:
 
-- Profil oluşturma ve eşleştirme
-- Karşılıklı kelime alışverişiyle açılan **kazıma (scratch)** mekaniği
-- Uçtan uca şifrelenmiş **özel mesajlaşma**
+- Profil oluşturma ve eşleştirme (cinsiyet ve doğum yılı kayıttan sonra **değiştirilemez**)
+- Karşılıklı kelime alışverişiyle, **özel saklanan** fotoğrafların kademeli açıldığı **kazıma (scratch)** mekaniği
+- **Gerçek uçtan uca şifrelenmiş (E2EE — NaCl/Curve25519) özel mesajlaşma** — özel anahtar yalnız cihazınızda; şifre sıfırlama/değişimi eski mesajları okunamaz hale getirebilir
+- **Ses perdesi maskelemeli** sesli tanıtım (opsiyonel)
 - **Frejya Aura** sembolik sosyal akış
 - **Kapı Zili** sistemi ile sınırlı ilk iletişim
+- **AI profil fotoğrafı doğrulaması** (gerçek insan / yüz / 18+ / cinsiyet / NSFW denetimi)
 
 Hizmet, Apple App Store ve Google Play Store üzerinden dağıtılır.
 
@@ -80,7 +82,7 @@ Kuralları ihlal eden kullanıcılara aşağıdaki yaptırımlar uygulanır:
 
 | İhlal | Sonuç |
 |---|---|
-| Reddedilen profil fotoğrafı (5. kez) | 48 saat geçici kilit |
+| Reddedilen profil fotoğrafı (art arda 5. kez) | 1 gün geçici yükleme kısıtı (onayla veya 30 günde sıfırlanır) |
 | Şikâyet edilen mesaj (kanıtlı) | Uyarı, 7 gün ban veya kalıcı ban |
 | Cinsel / illegal içerik | **Anında kalıcı ban** + yetkililere ihbar |
 | 18 yaş altı tespiti | **Anında kalıcı ban** + Storage temizliği |
@@ -160,6 +162,8 @@ Toplam sorumluluğumuz, sizin son 12 ayda Frejya'ya yaptığınız ödemeleri (e
 - 15 gün sonra otomatik bir görev hesap kaydını ve `auth.users` kaydını **tamamen siler** — Frejya'da hiçbir izi kalmaz.
 - Bu 15 gün içinde aynı e-posta ile yeniden kayıt olamazsınız; sonrasında serbestsiniz.
 
+> **Sohbet bitirme ≠ hesap silme:** Bir sohbeti bitirdiğinizde mesajlar olası adli/yasal delil için **15 gün şifreli arşivlenir** (size gösterilmez), sonra kalıcı silinir; ayrıca taraflar arasında varsayılan **60 günlük karşılıklı geçici engel** uygulanır (bu süre boyunca birbirinizi göremez, zil çalamaz, takip edemezsiniz).
+
 ### 9.2. Hesabınızı Bizim Sonlandırmamız
 Aşağıdaki durumlarda hesabınızı sonlandırma hakkını saklı tutarız:
 
@@ -196,7 +200,7 @@ Bu Sözleşme'yi zaman zaman güncelleyebiliriz. Değişiklikler şu yollarla bi
 
 - Uygulama içi bildirim,
 - E-posta (kayıtlı e-posta adresinize),
-- https://mujdattelli.github.io/velvet/legal/eula.tr.html sayfasında güncel sürüm yayınlanır.
+- https://mujdattelli.github.io/frejya-legal/legal/eula.tr.html sayfasında güncel sürüm yayınlanır.
 
 Önemli değişikliklerden sonra Uygulamayı kullanmaya devam etmeniz, **yeni sürümü kabul ettiğiniz** anlamına gelir. Kabul etmediğiniz takdirde hesabınızı silebilirsiniz.
 

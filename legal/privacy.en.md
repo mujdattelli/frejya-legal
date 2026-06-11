@@ -6,7 +6,7 @@ layout: default
 # Frejya — Privacy Policy
 
 **Effective Date:** May 14, 2026
-**Last Updated:** May 14, 2026
+**Last Updated:** June 11, 2026
 
 This Privacy Policy describes how **Müjdat TELLİ** (hereinafter "we", "Frejya", or "Service Provider") collects, uses, and protects personal data of users (hereinafter "you" or "User") of the **Frejya** mobile application (hereinafter "Application").
 
@@ -33,10 +33,10 @@ When you use Frejya, we collect the following categories of data:
 - **Password** (never stored in plain text; hashed with bcrypt and salted)
 
 ### 2.2. Profile Information (Provided by You)
-- **Profile photo** (mandatory; processed via AI as detailed below)
-- **Voice introduction recording** (optional)
-- **Year of birth** (required for 18+ age verification)
-- **Gender** (used by the matching algorithm)
+- **Profile photo** (mandatory; processed via AI as detailed below). Photos are stored **privately** in Supabase Storage; they are not handed directly to your match but are revealed gradually through the in-chat **"scratch"** mechanic as both sides exchange words.
+- **Voice introduction recording** (optional). When you record one, your real frequency is concealed via **voice-pitch masking** (Deep / Bass / Dynamic / Warm).
+- **Year of birth** (required for 18+ age verification; **cannot be changed after registration**)
+- **Gender** (used by the matching algorithm; **cannot be changed after registration**)
 - **Height, weight, marital status** (optional profile data)
 - **Education, profession** (optional)
 - **Lifestyle preferences:** drinking, smoking, pets, dance, religion, tattoos, LGBT status, mobile gaming, travel (all optional; "Skip" available for each)
@@ -49,7 +49,10 @@ When you use Frejya, we collect the following categories of data:
 - Exception: For fraud detection and "Impossible Travel" anomaly analysis, **last login coordinates** and **timestamp** are stored briefly in a separate field; this data is read by the system only for security violation analysis and is never shown to any user.
 
 ### 2.4. Communication and Content Data
-- **Your messages:** Messages exchanged with other users are encrypted **with AES-256 (at-rest storage)**. Our servers **cannot decrypt** message content. Message **metadata** (sender ID, receiver ID, timestamp, read status) is stored for service functionality.
+- **Your messages (End-to-End Encrypted — E2EE):** Messages exchanged with other users are protected by **genuine end-to-end encryption (NaCl / Curve25519, `nacl.box`)**. Each user-device pair has its own key pair; the **private key lives only on your device** (`expo-secure-store`) and is never sent to the server. Only the **public key** is stored on the server. Messages can be decrypted only on the sender's and recipient's devices; **our servers and database administrators (including us) cannot read message content in plain text.**
+  - **Key backup:** So that you can access your old messages on a new device, your private key is encrypted (wrapped) with a key derived from **your login password** and backed up on the server. Because the server does not know your password in plain text, it cannot decrypt this backup; it is unwrapped only when you enter the correct password. (For password-less accounts that sign in with Google/Apple, a dedicated **recovery key** is used instead.)
+  - **Password reset / change warning:** If you **reset** your password (forgot password) or change it, the key wrapped with the old password may become invalid, so **your old messages may become unrecoverable / unreadable.** This is an intentional design choice to protect your privacy.
+- **Message metadata:** Sender ID, receiver ID, timestamp, read status, and word count (for the scratch mechanic) are stored for service functionality.
 - **Posts:** Content you share to the Frejya Aura social feed (symbols / SVG references). Visible to other users.
 - **Interactions:** Likes, comments, matches, doorbell-ring records (who, whom, when).
 - **Blocking / report lists:** For your personal safety.
@@ -71,11 +74,12 @@ For user safety, Frejya analyzes **your profile photo** using automated AI servi
 
 - **AI services used:** Profile photos are sent **anonymously** (without your user identity) to Google Gemini AI. The exact model version is selected by Frejya administration based on current needs (e.g., Gemini 1.5 Flash or Gemini 3). Groq is configured as a fallback service.
 - **Location:** This service runs on Google's servers outside Turkey. After processing, photos are not retained per Google's Gemini API privacy policy (data sent via the Gemini API is not used for model training and is processed transiently).
-- **Face detection:** Face detection is performed by the AI service in a single combined call (no on-device pre-scan). The AI checks both face presence and content appropriateness together.
+- **What is checked:** In a single call the AI assesses whether the photo is a **real human** (not animation/illustration/AI-generated/object/landscape), **face visibility**, absence of **nudity/explicit content (NSFW)**, that it is not a **minor / child**, and **consistency with your declared gender**. There is no on-device pre-scan; all checks run server-side.
+- **Attractiveness score:** Approved photos receive an objective 1-10 quality score from the AI (lighting, sharpness, expression, framing) used for match ranking. The AI is instructed **not to discriminate based on skin tone, age, or race**. This score is not shown to other users.
 - **Consent:** You are asked to consent to AI processing during profile creation. Without consent, you cannot use Frejya (since profile photo verification is mandatory).
-- **Outcome:** Your photo is approved, rejected, or queued for manual review. Rejected photos are deleted from Storage.
+- **Outcome:** Your photo is approved, rejected, or queued for manual review. Rejected photos are deleted from Storage. If a photo is **rejected 5 times in a row**, the account is temporarily (1 day) restricted from uploading a new photo; this counter resets when a photo is approved or automatically after 30 days.
 
-**Important:** Biography (bio), hobbies, and other text fields are **NOT** analyzed by AI.
+**Important:** Biography (bio), hobbies, and other text fields are screened separately for content appropriateness but are **NOT** included in attractiveness/match scoring.
 
 ---
 
@@ -119,10 +123,10 @@ Data Processing Agreements (DPAs) are in effect or being established with each s
 | Data Type | Retention Period |
 |---|---|
 | Active account data | As long as the account is active |
-| Text messages (E2EE) | Kept during the chat; on chat end, immediately removed from the user view, retained **encrypted for 15 days** for legal obligations, then permanently deleted |
-| Image messages | Deleted 2 minutes after being opened |
+| Text & image messages (E2EE) | Kept while the chat is open. On chat end, removed from the user view and retained **encrypted for 15 days** (for potential forensic/legal evidence), then permanently deleted |
 | **Voice messages** | **Automatically deleted 15 days after sending** (even if the chat is still open) |
-| Anonymous record after account deletion | **15 days** (for legal notice / fraud claim review) — then permanently deleted including `auth.users` |
+| Mutual temporary block after a chat ends | Default **60 days** (during which the parties cannot see each other, ring, or follow), then automatically lifted |
+| Anonymous hold (grace) after account deletion | **15 days** (for legal notice / fraud claim review) — then permanently deleted including `auth.users` |
 | Crash logs (Sentry) | 90 days |
 | Audit logs (legal obligation) | 1 year (anonymous — UUID + action + timestamp) |
 | Rejected profile photos | Deleted immediately |
@@ -138,7 +142,7 @@ Per KVKK Article 11 (and GDPR Articles 15-22), you have the following rights:
 3. To learn the purpose of processing and whether the data is used in accordance with that purpose,
 4. To know third parties to whom data is transferred (domestic or abroad),
 5. To request correction of incomplete or inaccurate data,
-6. **To request deletion of your data** (instantly available via the "Delete My Account" button inside the app),
+6. **To request deletion of your data** (initiated via the "Delete My Account" button inside the app; data is permanently deleted at the end of the 15-day grace/undo period — see §6),
 7. To request that corrections / deletions be notified to third parties,
 8. To object to outcomes generated against you through automated systems,
 9. To claim damages if you suffer loss due to unlawful processing.
@@ -157,7 +161,7 @@ Frejya is for users **18 years of age or older**. **Persons under 18 are prohibi
 
 To protect your data, we apply the following technical and administrative measures:
 
-- **At-rest encryption (AES-256):** Message content is encrypted with AES-256 on the device before being written to our servers. This ensures messages cannot be read in plain text from database backups or unauthorized access. NOTE: Our current implementation uses a single shared application key; therefore, this mechanism does not technically qualify as "end-to-end encryption" (E2EE). A future migration to full E2EE (e.g., Signal Protocol) is planned.
+- **End-to-end encryption (E2EE — NaCl / Curve25519):** Messages are protected by genuine end-to-end encryption. Each user-device pair has a separate key pair; the **private key exists only on your device** (`expo-secure-store`) and is never sent to the server. The server stores only the public key. As a result, **no one — including database administrators — can read message content in plain text.** The server backup of your private key is wrapped only with a key derived from your password (or your recovery key on OAuth accounts); since the server does not know your password, it cannot decrypt this backup (see §2.4).
 - **Password security:** Bcrypt hash + salt; plain-text passwords are never stored.
 - **Database security:** Supabase Row Level Security (RLS) enforces per-row permission checks.
 - **SSL/TLS:** All traffic is HTTPS-encrypted; SSL pinning is active.
@@ -182,7 +186,7 @@ These transfers occur under KVKK Art. 9 with your **explicit consent**, which is
 
 ## 11. Cookies and Tracking
 
-Since Frejya is a mobile app, it **does not use cookies**. Our website (https://mujdattelli.github.io/velvet/) may use only functional cookies (since you are not logged in, no user tracking takes place).
+Since Frejya is a mobile app, it **does not use cookies**. Our website (https://frejya.app) may use only functional cookies (since you are not logged in, no user tracking takes place).
 
 **No advertising SDKs. No analytics SDKs. No Facebook / Google Analytics.**
 
@@ -192,7 +196,7 @@ Since Frejya is a mobile app, it **does not use cookies**. Our website (https://
 
 We may update this Policy from time to time. For significant changes, we will notify you via in-app notification and/or email. The current version is always published at:
 
-**https://mujdattelli.github.io/velvet/legal/privacy.en.html**
+**https://mujdattelli.github.io/frejya-legal/legal/privacy.en.html**
 
 ---
 

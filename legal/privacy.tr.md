@@ -6,7 +6,7 @@ layout: default
 # Frejya — Gizlilik Politikası
 
 **Yürürlük Tarihi:** 14 Mayıs 2026
-**Son Güncelleme:** 14 Mayıs 2026
+**Son Güncelleme:** 11 Haziran 2026
 
 İşbu Gizlilik Politikası, **Müjdat TELLİ** (bundan sonra "biz", "Frejya" veya "Hizmet Sağlayıcı" olarak anılacaktır) tarafından sunulan **Frejya** mobil uygulamasının (bundan sonra "Uygulama") kullanıcılarından (bundan sonra "siz" veya "Kullanıcı") topladığı kişisel verileri, bu verilerin kullanım amaçlarını, üçüncü taraflarla paylaşım koşullarını ve haklarınızı açıklar.
 
@@ -33,10 +33,10 @@ Frejya'yı kullanırken aşağıdaki veri kategorilerini topluyoruz:
 - **Şifre** (asla düz metin saklanmaz; bcrypt ile hash'lenir ve salt eklenir)
 
 ### 2.2. Profil Bilgileri (Sizin Sağladığınız)
-- **Profil fotoğrafı** (zorunlu, aşağıda detaylı açıklanmıştır)
-- **Sesli tanıtım kaydı** (opsiyonel)
-- **Doğum yılı** (18 yaş kontrolü için zorunlu)
-- **Cinsiyet** (eşleşme algoritması için)
+- **Profil fotoğrafı** (zorunlu, aşağıda detaylı açıklanmıştır). Fotoğraflar Supabase Storage'da **özel (private)** olarak saklanır; eşleştiğiniz kişiye doğrudan açık verilmez, sohbet içindeki **"kazıma" (scratch)** mekaniğiyle karşılıklı kelime alışverişi yapıldıkça kademeli olarak açılır.
+- **Sesli tanıtım kaydı** (opsiyonel). Ses kaydınız yüklenirken gerçek frekansınız **ses perdesi maskelemesi** (Tok / Derin / Dinamik / Sıcak) ile gizlenir.
+- **Doğum yılı** (18 yaş kontrolü için zorunlu; **kayıttan sonra değiştirilemez**)
+- **Cinsiyet** (eşleşme algoritması için; **kayıttan sonra değiştirilemez**)
 - **Boy, kilo, medeni durum** (opsiyonel profil verileri)
 - **Eğitim, meslek** (opsiyonel)
 - **Yaşam tarzı tercihleri:** içki, sigara, evcil hayvan, dans, din, dövme, LGBT durumu, mobil oyun, seyahat (opsiyonel, sansürsüz "Vazgeç" hakkıyla)
@@ -49,7 +49,10 @@ Frejya'yı kullanırken aşağıdaki veri kategorilerini topluyoruz:
 - İstisna: dolandırıcılık ve "Impossible Travel" (imkânsız konum değişimi) anomali tespiti için **son giriş koordinatları** ve **zaman damgası** ayrı bir alanda kısa süreli olarak tutulur; bu veri yalnızca güvenlik ihlali analizi için sistem tarafından okunur, hiçbir kullanıcıya gösterilmez.
 
 ### 2.4. İletişim ve İçerik Verileri
-- **Mesajlarınız:** Diğer kullanıcılarla aranızdaki mesajlar **AES-256 ile şifrelenir (at-rest depolama)**. Sunucularımız mesaj içeriğini **çözemez**. Mesaj **metadata**'sı (gönderen ID, alıcı ID, zaman damgası, okundu bilgisi) hizmet işlevselliği için saklanır.
+- **Mesajlarınız (Uçtan Uca Şifreli — E2EE):** Diğer kullanıcılarla aranızdaki mesajlar **gerçek uçtan uca şifreleme (NaCl / Curve25519, `nacl.box`)** ile korunur. Her kullanıcı-cihaz çiftinin kendi anahtar çifti vardır; **özel (private) anahtar yalnızca sizin cihazınızda** (`expo-secure-store`) tutulur, sunucuya hiçbir zaman gönderilmez. Yalnızca **açık (public) anahtar** sunucuda saklanır. Mesajlar yalnızca gönderen ve alıcının cihazlarında çözülebilir; **sunucularımız ve veritabanı yöneticileri (biz dahil) mesaj içeriğini düz metin olarak okuyamaz.**
+  - **Anahtar yedeği:** Yeni bir cihazda eski mesajlarınıza erişebilmeniz için özel anahtarınız, **giriş şifrenizden** türetilen bir anahtarla şifrelenip (sarmalanıp) sunucuda yedeklenir. Sunucu şifrenizi düz metin olarak bilmediği için bu yedeği çözemez; yalnızca siz doğru şifreyi girdiğinizde açılır. (Google/Apple ile giriş yapan şifresiz hesaplarda bunun yerine size özel bir **kurtarma anahtarı** kullanılır.)
+  - **Şifre sıfırlama / değişimi uyarısı:** Şifrenizi **sıfırlarsanız** (şifremi unuttum) veya değiştirirseniz, eski şifreyle sarmalanmış anahtar geçersiz kalabileceğinden **eski mesajlarınız geri getirilemez / okunamaz hale gelebilir.** Bu, mahremiyetinizi korumak için kasıtlı bir tasarım tercihidir.
+- **Mesaj metadata'sı:** Gönderen ID, alıcı ID, zaman damgası, okundu bilgisi ve kelime sayısı (kazıma mekaniği için) hizmet işlevselliği amacıyla saklanır.
 - **Gönderiler (post'lar):** Frejya Aura sosyal akışına paylaştığınız içerikler (semboller / SVG referansları). Diğer kullanıcılara görünür.
 - **Etkileşimler:** Beğeni, yorum, eşleşme, kapı zili çalma kayıtları (kim kime, ne zaman).
 - **Engelleme / şikâyet listeleri:** Kişisel güvenliğiniz için.
@@ -71,11 +74,12 @@ Frejya, kullanıcı güvenliği için **profil fotoğrafınızı** otomatik yapa
 
 - **Yapay zekâ servisi:** Profil fotoğrafları, Google Gemini yapay zekâ API'sine **anonim olarak** (kullanıcı kimliğiniz olmadan) gönderilir. Kullanılan model güncel ihtiyaca göre Frejya yönetimi tarafından seçilir (örn. Gemini 1.5 Flash veya Gemini 3). Yedek servis olarak Groq da yapılandırılmıştır.
 - **Yer:** Bu servis Türkiye dışında (Google sunucuları) çalışır. Fotoğrafınız işleme tabi tutulduktan sonra Google'ın kendi gizlilik politikası gereği saklanmaz (Gemini API üzerinden gönderilen veriler model eğitimi için kullanılmaz, geçici işleme tabi tutulup atılır).
-- **Yüz tespiti:** Fotoğraftaki yüz tespiti AI servisi tarafından yapılır (cihazınızda ön tarama yoktur). AI hem yüz varlığını hem de içerik uygunluğunu tek bir çağrıda denetler.
+- **Neler denetlenir:** AI tek bir çağrıda şunları değerlendirir: fotoğrafın **gerçek bir insan** olup olmadığı (animasyon/çizim/AI-üretimi/nesne/manzara değil), **yüz görünürlüğü**, **çıplaklık/müstehcenlik (NSFW)** yokluğu, **18 yaş altı / çocuk** olmadığı ve **beyan ettiğiniz cinsiyetle uyum**. Cihazınızda ön tarama yoktur; tüm denetim sunucu tarafında yapılır.
+- **Çekicilik puanı:** Onaylanan fotoğraflara, eşleştirme sıralamasında kullanılmak üzere AI tarafından 1-10 arası objektif bir kalite puanı (ışık, netlik, ifade, kadraj) verilir. **Ten rengi, yaş ve ırk temelinde ayrım yapmaması** talimatı verilmiştir. Bu puan başka kullanıcılara gösterilmez.
 - **Onay:** Profil oluştururken AI işlemeye onay vermeniz istenir. Onay vermediğinizde Frejya'yı kullanamazsınız (çünkü profil fotoğrafı doğrulaması zorunludur).
-- **Sonuç:** Fotoğrafınız onaylanır, reddedilir veya manuel inceleme için bekletilir. Reddedilen fotoğraflar Storage'dan silinir.
+- **Sonuç:** Fotoğrafınız onaylanır, reddedilir veya manuel inceleme için bekletilir. Reddedilen fotoğraflar Storage'dan silinir. Fotoğraf **art arda 5 kez reddedilirse** hesap geçici olarak (1 gün) yeni fotoğraf yüklemekten kısıtlanır; bu sayaç fotoğraf onaylandığında veya 30 gün sonra otomatik sıfırlanır.
 
-**Önemli:** Biyografi (bio), hobiler veya diğer metin alanları AI ile analiz edilmez.
+**Önemli:** Biyografi (bio), hobiler veya diğer metin alanları AI içerik uygunluğu için ayrıca işaretlenir ancak çekicilik/eşleşme puanlamasına dahil edilmez.
 
 ---
 
@@ -119,9 +123,10 @@ Her hizmet sağlayıcısıyla veri işleme sözleşmeleri (DPA) yürürlüktedir
 | Veri Türü | Saklama Süresi |
 |---|---|
 | Aktif hesap verileri | Hesap aktif olduğu sürece |
-| Metin & görüntü mesajları (E2EE) | Sohbet süresince; sohbet kapanınca silinir |
+| Metin & görüntü mesajları (E2EE) | Sohbet açık olduğu sürece. Sohbet bittiğinde mesajlar **15 gün şifreli olarak arşivlenir** (olası adli/yasal delil için, kullanıcıya gösterilmez), sonra **kalıcı olarak silinir** |
 | **Sesli mesajlar** | **Gönderildikten 15 gün sonra otomatik silinir** (sohbet sürse bile) |
-| Hesap silme sonrası anonim kayıt | **15 gün** (yasal ihbar / dolandırıcılık şikâyeti için) — sonra `auth.users` dahil tamamen silinir |
+| Sohbet sonrası karşılıklı geçici engel | Varsayılan **60 gün** (bu süre boyunca taraflar birbirini göremez, zil çalamaz, takip edemez), sonra otomatik kalkar |
+| Hesap silme sonrası anonim bekletme (grace) | **15 gün** (yasal ihbar / dolandırıcılık şikâyeti için) — sonra `auth.users` dahil tamamen silinir |
 | Crash logları (Sentry) | 90 gün |
 | Audit logları (yasal yükümlülük) | 1 yıl (anonim — UUID + eylem + zaman) |
 | Reddedilmiş profil fotoğrafları | Anında silinir |
@@ -137,7 +142,7 @@ KVKK m.11 uyarınca aşağıdaki haklara sahipsiniz:
 3. İşlenme amacını ve amacına uygun kullanılıp kullanılmadığını öğrenme,
 4. Yurt içinde / yurt dışında aktarıldığı üçüncü tarafları bilme,
 5. Eksik / yanlış işlenen verilerin düzeltilmesini isteme,
-6. **Verilerinizin silinmesini isteme** (Uygulama içindeki "Hesabımı Sil" butonu ile anında yapılabilir),
+6. **Verilerinizin silinmesini isteme** (Uygulama içindeki "Hesabımı Sil" butonu ile başlatılır; veriler 15 günlük geri-alma/grace süresinin sonunda kalıcı silinir — bkz. §6),
 7. Düzeltilen / silinen verilerin üçüncü taraflara bildirilmesini isteme,
 8. Otomatik sistemlerle analiz sonucu aleyhinize bir sonuç çıkmasına itiraz etme,
 9. Kanuna aykırı işleme sonucu zarara uğradıysanız tazminat talep etme.
@@ -156,7 +161,7 @@ Frejya **18 yaş ve üzeri** kullanıcılar içindir. **18 yaşından küçük**
 
 Verilerinizi korumak için aşağıdaki teknik ve idari tedbirleri uygularız:
 
-- **At-rest şifreleme (AES-256):** Mesaj içerikleri sunucularımıza yazılmadan önce cihaz tarafında AES-256 ile şifrelenir. Bu, veritabanı yedekleri veya yetkisiz erişim durumunda mesaj içeriklerinin düz metin olarak okunamamasını sağlar. NOT: Şu anki uygulamamızda paylaşılan tek bir uygulama anahtarı kullanılmaktadır; bu nedenle bu mekanizma teknik anlamda "uçtan uca şifreleme" (E2EE) olarak nitelendirilmez. İleride Signal Protocol benzeri tam E2EE'ye geçiş hedeflenmektedir.
+- **Uçtan uca şifreleme (E2EE — NaCl / Curve25519):** Mesajlar gerçek uçtan uca şifreleme ile korunur. Her kullanıcı-cihaz çiftinin ayrı bir anahtar çifti vardır; **özel anahtar yalnızca cihazınızda** (`expo-secure-store`) bulunur ve sunucuya hiç gönderilmez. Sunucu yalnızca açık anahtarı tutar. Sonuç olarak veritabanı yöneticileri dahil **hiç kimse mesaj içeriğini düz metin olarak okuyamaz.** Özel anahtarın sunucu yedeği, yalnızca sizin şifrenizden (veya OAuth hesaplarda kurtarma anahtarınızdan) türetilen bir anahtarla sarmalanır; sunucu şifrenizi bilmediği için bu yedeği çözemez (bkz. §2.4).
 - **Şifre güvenliği:** Bcrypt hash + salt; düz metin şifre saklanmaz.
 - **Veritabanı güvenliği:** Supabase Row Level Security (RLS) ile her satır için izin kontrolü.
 - **SSL/TLS:** Tüm trafik HTTPS ile şifrelenir; sertifika sabitleme (SSL pinning) aktiftir.
@@ -181,7 +186,7 @@ Bu aktarımlar **KVKK m.9** kapsamında **açık rızanız** alınarak gerçekle
 
 ## 11. Çerezler ve İzleme
 
-Frejya mobil bir uygulama olduğu için **çerez (cookie) kullanmaz**. Web sitemizde (https://mujdattelli.github.io/velvet/) yalnızca işlevsel çerezler kullanılabilir (oturum açmadığınız için kullanıcı izleme yapılmaz).
+Frejya mobil bir uygulama olduğu için **çerez (cookie) kullanmaz**. Web sitemizde (https://frejya.app) yalnızca işlevsel çerezler kullanılabilir (oturum açmadığınız için kullanıcı izleme yapılmaz).
 
 **Reklam SDK'sı yoktur. Analitik SDK'sı yoktur. Facebook / Google Analytics yoktur.**
 
@@ -191,7 +196,7 @@ Frejya mobil bir uygulama olduğu için **çerez (cookie) kullanmaz**. Web sitem
 
 Bu politikayı zaman zaman güncelleyebiliriz. Önemli değişiklikler için uygulama içi bildirim ve / veya e-posta ile haberdar edileceksiniz. Güncel sürüm her zaman bu adreste yayınlanır:
 
-**https://mujdattelli.github.io/velvet/legal/privacy.tr.html**
+**https://mujdattelli.github.io/frejya-legal/legal/privacy.tr.html**
 
 ---
 

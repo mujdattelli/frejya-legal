@@ -6,7 +6,7 @@ layout: default
 # Frejya — End User License Agreement (EULA)
 
 **Effective Date:** May 14, 2026
-**Last Updated:** May 14, 2026
+**Last Updated:** June 11, 2026
 
 This End User License Agreement ("Agreement") governs the use of the **Frejya** mobile application ("Application" or "Service") provided by **Müjdat TELLİ** (hereinafter "we" or "Service Provider").
 
@@ -20,11 +20,13 @@ Contact: **iletisim@frejya.app**
 
 Frejya is a social and dating application designed for **adults aged 18 and over**, based on a "slow dating" philosophy. The Service offers:
 
-- Profile creation and matching
-- A **scratch** mechanic that unlocks profiles via mutual word exchange
-- AES-256 encrypted (at-rest storage) **private messaging**
+- Profile creation and matching (gender and year of birth **cannot be changed after registration**)
+- A **scratch** mechanic that gradually unlocks **privately stored** photos via mutual word exchange
+- **Genuinely end-to-end encrypted (E2EE — NaCl/Curve25519) private messaging** — the private key lives only on your device; resetting/changing your password may render old messages unreadable
+- **Voice-pitch masked** voice introductions (optional)
 - **Frejya Aura** symbolic social feed
 - **Doorbell** system for limited first contact
+- **AI profile photo verification** (real human / face / 18+ / gender / NSFW checks)
 
 The Service is distributed via Apple App Store and Google Play Store.
 
@@ -80,7 +82,7 @@ The following sanctions apply to users who violate these rules:
 
 | Violation | Consequence |
 |---|---|
-| Rejected profile photo (5th time) | 48-hour temporary lock |
+| Rejected profile photo (5th time in a row) | 1-day temporary upload restriction (resets on approval or after 30 days) |
 | Reported message (with evidence) | Warning, 7-day ban, or permanent ban |
 | Sexual / illegal content | **Immediate permanent ban** + reported to authorities |
 | Under-18 detection | **Immediate permanent ban** + Storage cleanup |
@@ -160,6 +162,8 @@ Our total liability shall not exceed the amount you have paid to Frejya in the l
 - After 15 days, an automated job **permanently deletes the account record and the `auth.users` entry** — no trace remains on Frejya.
 - During these 15 days you cannot re-register with the same email; after that you are free to.
 
+> **Ending a chat ≠ deleting your account:** When you end a chat, messages are **archived encrypted for 15 days** (not shown to you) for potential forensic/legal evidence, then permanently deleted; additionally, a default **60-day mutual temporary block** is applied between the parties (during which you cannot see each other, ring, or follow).
+
 ### 9.2. Termination by Us
 We reserve the right to terminate your account in the following cases:
 
@@ -196,7 +200,7 @@ We may update this Agreement from time to time. Changes will be notified via:
 
 - In-app notification,
 - Email (to your registered email address),
-- The current version will be published at https://mujdattelli.github.io/velvet/legal/eula.en.html.
+- The current version will be published at https://mujdattelli.github.io/frejya-legal/legal/eula.en.html.
 
 Continuing to use the Application after material changes constitutes your **acceptance of the new version**. If you do not accept, you may delete your account.
 
