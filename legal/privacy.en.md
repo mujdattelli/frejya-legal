@@ -113,8 +113,11 @@ We use the following service providers, each subject to their own privacy polici
 | **Groq API** | Profile photo AI review (fallback) | USA | Photo only (anonymous) |
 | **Expo Push Service** | Push notification delivery | USA (Apple APNs / Google FCM transit) | Only push token + message title |
 | **Apple App Store / Google Play** | App distribution | Global | Download data (not shared with us; only statistics) |
+| **Cloudflare Turnstile** | Bot / automated-abuse protection (captcha) | Global (Cloudflare network) | IP address + browser/device signals (not linked to your identity) |
 
 Data Processing Agreements (DPAs) are in effect or being established with each service provider.
+
+> **🛡️ Bot protection (Cloudflare Turnstile):** Cloudflare Turnstile is used during sign-up, login, password reset, and account deletion to prevent automated (bot) access. It processes your IP address and browser/device signals; this data is not linked to your identity and is not used for advertising. Turnstile runs in "invisible" mode, so a verification step usually does not appear on screen. For Cloudflare's data processing in this context, see the **Cloudflare Turnstile Privacy Addendum**: https://www.cloudflare.com/turnstile-privacy-policy/
 
 ---
 

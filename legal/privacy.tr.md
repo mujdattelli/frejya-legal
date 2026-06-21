@@ -113,8 +113,11 @@ Aşağıdaki hizmet sağlayıcıları kullanırız. Hepsi kendi gizlilik politik
 | **Groq API** | Profil fotoğrafı AI incelemesi (yedek) | ABD | Yalnızca fotoğraf (anonim) |
 | **Expo Push Service** | Push notification iletimi | ABD (Apple APNs / Google FCM transit) | Sadece push token + mesaj başlığı |
 | **Apple App Store / Google Play** | Uygulama dağıtımı | Global | Indirme verisi (bizimle paylaşılmaz, sadece istatistik) |
+| **Cloudflare Turnstile** | Bot/otomatik kötüye kullanım koruması (captcha) | Global (Cloudflare ağı) | IP adresi + tarayıcı/cihaz sinyalleri (kimliğinizle ilişkilendirilmez) |
 
 Her hizmet sağlayıcısıyla veri işleme sözleşmeleri (DPA) yürürlüktedir veya yürürlüğe konulacaktır.
+
+> **🛡️ Bot koruması (Cloudflare Turnstile):** Kayıt, giriş, şifre sıfırlama ve hesap silme işlemlerinde otomatik (bot) erişimi engellemek için Cloudflare Turnstile hizmeti kullanılır. Bu hizmet IP adresinizi ve tarayıcı/cihaz sinyallerinizi işler; bu veriler kimliğinizle ilişkilendirilmez ve reklam amacıyla kullanılmaz. Turnstile "görünmez (invisible)" modda çalıştığından çoğu zaman ekranda bir doğrulama adımı görünmez. Cloudflare'in bu kapsamdaki veri işleme uygulamaları için bkz. **Cloudflare Turnstile Gizlilik Eki (Turnstile Privacy Addendum)**: https://www.cloudflare.com/turnstile-privacy-policy/
 
 ---
 
