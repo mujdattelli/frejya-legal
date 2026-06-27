@@ -128,7 +128,7 @@ Data Processing Agreements (DPAs) are in effect or being established with each s
 | Active account data | As long as the account is active |
 | Text & image messages (E2EE) | Kept while the chat is open. On chat end, removed from the user view and retained **encrypted for 15 days** (for potential forensic/legal evidence), then permanently deleted |
 | **Voice messages** | **Automatically deleted 15 days after sending** (even if the chat is still open) |
-| Mutual temporary block after a chat ends | Default **60 days** (during which the parties cannot see each other, ring, or follow), then automatically lifted |
+| Blocking after a chat ends | **No automatic block**; the user may permanently block the other party via "End & block" if they choose |
 | Anonymous hold (grace) after account deletion | **15 days** (for legal notice / fraud claim review) — then permanently deleted including `auth.users` |
 | Crash logs (Sentry) | 90 days |
 | Audit logs (legal obligation) | 1 year (anonymous — UUID + action + timestamp) |

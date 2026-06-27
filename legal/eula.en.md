@@ -162,7 +162,7 @@ Our total liability shall not exceed the amount you have paid to Frejya in the l
 - After 15 days, an automated job **permanently deletes the account record and the `auth.users` entry** — no trace remains on Frejya.
 - During these 15 days you cannot re-register with the same email; after that you are free to.
 
-> **Ending a chat ≠ deleting your account:** When you end a chat, messages are **archived encrypted for 15 days** (not shown to you) for potential forensic/legal evidence, then permanently deleted; additionally, a default **60-day mutual temporary block** is applied between the parties (during which you cannot see each other, ring, or follow).
+> **Ending a chat ≠ deleting your account:** When you end a chat, messages are **archived encrypted for 15 days** (not shown to you) for potential forensic/legal evidence, then permanently deleted. When ending a chat you may optionally **permanently block** the other person ("End & block"); if you do not block them, no automatic block is applied.
 
 ### 9.2. Termination by Us
 We reserve the right to terminate your account in the following cases:

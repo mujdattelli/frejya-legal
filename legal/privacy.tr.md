@@ -128,7 +128,7 @@ Her hizmet sağlayıcısıyla veri işleme sözleşmeleri (DPA) yürürlüktedir
 | Aktif hesap verileri | Hesap aktif olduğu sürece |
 | Metin & görüntü mesajları (E2EE) | Sohbet açık olduğu sürece. Sohbet bittiğinde mesajlar **15 gün şifreli olarak arşivlenir** (olası adli/yasal delil için, kullanıcıya gösterilmez), sonra **kalıcı olarak silinir** |
 | **Sesli mesajlar** | **Gönderildikten 15 gün sonra otomatik silinir** (sohbet sürse bile) |
-| Sohbet sonrası karşılıklı geçici engel | Varsayılan **60 gün** (bu süre boyunca taraflar birbirini göremez, zil çalamaz, takip edemez), sonra otomatik kalkar |
+| Sohbet sonrası engelleme | Otomatik engel **yoktur**; kullanıcı dilerse "Bitir ve engelle" ile karşı tarafı **kalıcı** engelleyebilir |
 | Hesap silme sonrası anonim bekletme (grace) | **15 gün** (yasal ihbar / dolandırıcılık şikâyeti için) — sonra `auth.users` dahil tamamen silinir |
 | Crash logları (Sentry) | 90 gün |
 | Audit logları (yasal yükümlülük) | 1 yıl (anonim — UUID + eylem + zaman) |

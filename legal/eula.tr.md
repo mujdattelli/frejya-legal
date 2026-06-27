@@ -162,7 +162,7 @@ Toplam sorumluluğumuz, sizin son 12 ayda Frejya'ya yaptığınız ödemeleri (e
 - 15 gün sonra otomatik bir görev hesap kaydını ve `auth.users` kaydını **tamamen siler** — Frejya'da hiçbir izi kalmaz.
 - Bu 15 gün içinde aynı e-posta ile yeniden kayıt olamazsınız; sonrasında serbestsiniz.
 
-> **Sohbet bitirme ≠ hesap silme:** Bir sohbeti bitirdiğinizde mesajlar olası adli/yasal delil için **15 gün şifreli arşivlenir** (size gösterilmez), sonra kalıcı silinir; ayrıca taraflar arasında varsayılan **60 günlük karşılıklı geçici engel** uygulanır (bu süre boyunca birbirinizi göremez, zil çalamaz, takip edemezsiniz).
+> **Sohbet bitirme ≠ hesap silme:** Bir sohbeti bitirdiğinizde mesajlar olası adli/yasal delil için **15 gün şifreli arşivlenir** (size gösterilmez), sonra kalıcı silinir. Sohbeti bitirirken dilerseniz karşı tarafı **kalıcı olarak engelleyebilirsiniz** ("Bitir ve engelle"); engellemediğiniz takdirde otomatik bir engel uygulanmaz.
 
 ### 9.2. Hesabınızı Bizim Sonlandırmamız
 Aşağıdaki durumlarda hesabınızı sonlandırma hakkını saklı tutarız:
